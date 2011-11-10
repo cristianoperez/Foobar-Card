@@ -29,12 +29,5 @@ public class Resposta {
 			return mensagem = Mensagem.TRANSACAO_NAO_APROVADA;
 		}
 	}
-	@Override
-	public String toString() {
-		return "Resposta [codigoRetorno=" + codigoRetorno + ", mensagem="
-				+ mensagem + "]";
-	}
-	
-	
-	
+
 }
