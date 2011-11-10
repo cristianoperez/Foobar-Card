@@ -63,13 +63,4 @@ public class Requisicao {
 		this.valor = valor;
 	}
 
-	@Override
-	public String toString() {
-		return "Requisicao [numeroCartao=" + numeroCartao + ", limite="
-				+ limite + ", dataExpiracao=" + getDataExpiracao() + ", valor="
-				+ valor + "]";
-	}
-	
-	
-
 }
