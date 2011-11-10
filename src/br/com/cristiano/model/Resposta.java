@@ -30,5 +30,12 @@ public class Resposta {
 		}
 		return mensagem;
 	}
+	@Override
+	public String toString() {
+		return "Resposta [codigoRetorno=" + codigoRetorno + ", mensagem="
+				+ mensagem + "]";
+	}
+	
+	
 	
 }

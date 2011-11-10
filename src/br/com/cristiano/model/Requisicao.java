@@ -1,8 +1,11 @@
 package br.com.cristiano.model;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
@@ -11,9 +14,19 @@ public class Requisicao {
 
 	private long numeroCartao;
 	private Double limite = 30.00;
-	private Calendar dataExpiracao;
+	private Date dataExpiracao;
 	private Double valor;
+	
+	public Requisicao(){
+	}
+	
+	public Requisicao(long numeroCartao, Date dataExpiracao, Double valor){
+		this.numeroCartao = numeroCartao;
+		this.dataExpiracao = dataExpiracao;
+		this.valor = valor;
+	}
 
+	@XmlElement(name = "numeroCartao")
 	public long getNumeroCartao() {
 		return numeroCartao;
 	}
@@ -21,7 +34,8 @@ public class Requisicao {
 	public void setNumeroCartao(long numeroCartao) {
 		this.numeroCartao = numeroCartao;
 	}
-
+	
+	@XmlTransient
 	public Double getLimite() {
 		return limite;
 	}
@@ -29,15 +43,18 @@ public class Requisicao {
 	public void setLimite(Double limite) {
 		this.limite = limite;
 	}
-
-	public Calendar getDataExpiracao() {
-		return dataExpiracao;
+	
+	@XmlElement(name = "dataExpiracao")
+	public String getDataExpiracao() {
+		SimpleDateFormat df = new SimpleDateFormat("MM/yy");
+		return df.format(dataExpiracao.getTime());
 	}
 
-	public void setDataExpiracao(Calendar dataExpiracao) {
+	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
-
+	
+	@XmlElement(name = "valor")
 	public Double getValor() {
 		return valor;
 	}
@@ -45,5 +62,14 @@ public class Requisicao {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+
+	@Override
+	public String toString() {
+		return "Requisicao [numeroCartao=" + numeroCartao + ", limite="
+				+ limite + ", dataExpiracao=" + getDataExpiracao() + ", valor="
+				+ valor + "]";
+	}
+	
+	
 
 }
