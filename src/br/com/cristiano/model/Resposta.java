@@ -24,11 +24,10 @@ public class Resposta {
 	@XmlElement(name = "mensagem")
 	public Mensagem getMensagem() {
 		if(codigoRetorno == 0){
-			mensagem = Mensagem.TRANSACAO_APROVADA;
+			return 	mensagem = Mensagem.TRANSACAO_APROVADA;
 		} else {
-			mensagem = Mensagem.TRANSACAO_NAO_APROVADA;
+			return mensagem = Mensagem.TRANSACAO_NAO_APROVADA;
 		}
-		return mensagem;
 	}
 	@Override
 	public String toString() {
