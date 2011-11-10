@@ -33,13 +33,13 @@ public class RequisicaoResource {
 			@Context HttpServletResponse servletResponse
 	) throws ParseException{
 		Resposta resposta = new Resposta();
-			SimpleDateFormat df = new SimpleDateFormat("MM/yy");
-			Requisicao requisicao = new Requisicao(numeroCartao, df.parse(dataExpiracao), valor);
-			if(valor<=requisicao.getLimite()){
-				resposta.setCodigoRetorno(0);
-			} else {
-				resposta.setCodigoRetorno(1);
-			}
-			return requisicao;
+		SimpleDateFormat df = new SimpleDateFormat("MM/yy");
+		Requisicao requisicao = new Requisicao(numeroCartao, df.parse(dataExpiracao), valor);
+		if(valor<=requisicao.getLimite()){
+			resposta.setCodigoRetorno(0);
+		} else {
+			resposta.setCodigoRetorno(1);
+		}
+		return requisicao;
 	}
 }
