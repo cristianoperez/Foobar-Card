@@ -5,27 +5,26 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement
-@XmlType(propOrder = { "numeroCartao", "dataExpiracao", "valor" })
-public class Requisicao {
+@XmlRootElement(name = "requisicao")
+@XmlType(propOrder = { "numeroCartao", "dataExpiracao", "valor", "limite" })
+public class Cartao {
 
 	private long numeroCartao;
-	private Double limite = 30.00;
+	private Double limite;
 	private Date dataExpiracao;
 	private Double valor;
 	
-	public Requisicao(){
+	public Cartao(){
 	}
 	
-	public Requisicao(long numeroCartao, Date dataExpiracao, Double valor){
+	public Cartao(long numeroCartao, Double limite, Date dataExpiracao){
 		this.numeroCartao = numeroCartao;
 		this.dataExpiracao = dataExpiracao;
-		this.valor = valor;
+		this.limite = limite;
 	}
-
+	
 	@XmlElement(name = "numeroCartao")
 	public long getNumeroCartao() {
 		return numeroCartao;
@@ -35,7 +34,7 @@ public class Requisicao {
 		this.numeroCartao = numeroCartao;
 	}
 	
-	@XmlTransient
+	@XmlElement(name = "limite")
 	public Double getLimite() {
 		return limite;
 	}
