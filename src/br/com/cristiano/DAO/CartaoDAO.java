@@ -20,8 +20,7 @@ public class CartaoDAO {
 
 	private CartaoDAO() {
 		try {
-			Cartao cartao = new Cartao(12345678909876L, 30.00,
-					df.parse("08/12"));
+			Cartao cartao = new Cartao(12345678909876L, 30.00, df.parse("08/12"));
 			cartoes.add(cartao);
 			cartao = new Cartao(1234567890987L, 50.00, df.parse("12/14"));
 			cartoes.add(cartao);

@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name = "requisicao")
+@XmlRootElement
 @XmlType(propOrder = { "numeroCartao", "dataExpiracao", "valor", "limite" })
 public class Cartao {
 
